@@ -14,16 +14,18 @@ function preload()
 }
 
 function setup() {
-	createCanvas(1200, 400);
+	createCanvas(600, 700);
 
 
 	engine = Engine.create();
 	world = engine.world;
 
-	ball1 = new ball(100,100);
-	bin1= new bin(750,380,100,25)
-	bin2= new bin(805,380,100,10)
-	bin3= new bin(695,380,100,10)
+	ground1=new ground(300,690,701,10)
+
+	ball1 = new ball(100,100,5);
+	bin1= new bin(550,620,25,100)
+	bin2= new bin(455,620,25,100)
+	bin3= new bin(495,675,100,10)
 
 	Engine.run(engine);
   
@@ -34,9 +36,38 @@ function draw() {
   rectMode(CENTER);
   background("black");
   
+  ground1.display();
+  ball1.display();
+  bin1.display();
+  bin2.display();
+  bin3.display();
+
+
   drawSprites();
+  
  
 }
+
+
+function Boost(){
+
+if(keyCode === SPACE){
+	
+
+ball1.velocityY = -5
+
+}
+
+
+
+
+
+
+}
+
+
+
+
 
 
 
